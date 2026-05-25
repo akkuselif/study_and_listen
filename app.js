@@ -1,60 +1,172 @@
-/* ── Libraries Data ───────────────────────────────────── */
-const LIBRARIES = [
+/* ── Scene Data ─────────────────────────────────────────── */
+const SCENES = [
   {
-    name: "Trinity College",
-    loc: "Dublin, Ireland",
-    country: "Ireland",
-    vid: "NrZ69l5hqWk",
-    desc: "The Long Room — 65 metres of ancient oak, marble busts and 200,000 of the oldest books in Ireland",
+    category: "Tokyo",
+    icon: "🌸",
+    items: [
+      {
+        name: "Cherry Blossom Drive",
+        loc: "Tokyo at Night",
+        vid: "ymO9UQwntyo",
+        desc: "8K drive through Tokyo's cherry blossom streets at night — pure city sounds, no music",
+      },
+      {
+        name: "Rainy Shibuya",
+        loc: "Shibuya, Tokyo",
+        vid: "sAkVnhthpMI",
+        desc: "2-hour rainy night walk through Shibuya — rain sounds only, cinematic 8K",
+      },
+      {
+        name: "Shibuya Neon Night",
+        loc: "Shibuya, Tokyo",
+        vid: "SlHl7swKcKA",
+        desc: "Night drive through neon-lit Shibuya and Harajuku — ambient sounds only, 8K HDR",
+      },
+      {
+        name: "Shinjuku Night",
+        loc: "Shinjuku, Tokyo",
+        vid: "4UVN3DH7TSA",
+        desc: "Relaxing night drive through Shinjuku and Kabukicho — ambient city sounds, 8K",
+      },
+      {
+        name: "Spring Sakura Drive",
+        loc: "Tokyo",
+        vid: "8dMe11ruUuc",
+        desc: "Daytime drive under cherry blossoms along Chitose Street — ambient only, 8K HDR",
+      },
+      {
+        name: "Golden Morning",
+        loc: "Tokyo",
+        vid: "iF3thiZR0fQ",
+        desc: "Golden sunlight pouring through a window on a quiet Tokyo street corner at 7AM",
+      },
+      {
+        name: "Rainy Shinjuku",
+        loc: "Shinjuku, Tokyo",
+        vid: "SS-Qqpkd3ow",
+        desc: "A rainy day in Shinjuku looking down at the busy streets from a warm window",
+      },
+      {
+        name: "Tokyo Sunset",
+        loc: "Tokyo",
+        vid: "lo8WTG9Kie0",
+        desc: "Tokyo skyline at golden hour — city sounds and ambient atmosphere, no music",
+      },
+    ],
   },
   {
-    name: "Admont Abbey",
-    loc: "Styria, Austria",
-    country: "Austria",
-    vid: "wMywixffBsY",
-    desc: "The world's largest monastic library, a Baroque masterpiece with frescoed ceilings and gilded shelves",
+    category: "Cities",
+    icon: "🌆",
+    items: [
+      {
+        name: "NYC Skyline",
+        loc: "New York, USA",
+        vid: "kkOjIynE9ro",
+        desc: "NYC skyline with drifting clouds from a high-rise window — lofi and calm",
+      },
+      {
+        name: "Manhattan Coffee",
+        loc: "New York, USA",
+        vid: "lfvPKYkWHHU",
+        desc: "Cozy New York coffee shop with Lower Manhattan view and distant thunder",
+      },
+      {
+        name: "Beijing Sunrise",
+        loc: "Beijing, China",
+        vid: "GSep96CLsgo",
+        desc: "Watching the sunrise over Beijing's rooftops — calm and cinematic",
+      },
+      {
+        name: "London Tower Bridge",
+        loc: "London, UK",
+        vid: "4Twepz0bAWs",
+        desc: "Tower Bridge in autumn — golden leaves and the Thames in a 2-hour session",
+      },
+      {
+        name: "London Big Ben",
+        loc: "London, UK",
+        vid: "p3ynjjRbU9A",
+        desc: "Big Ben at sunset over the Thames — one of the most iconic study views",
+      },
+      {
+        name: "Paris Café",
+        loc: "Paris, France",
+        vid: "29AkeFFqynY",
+        desc: "A charming Parisian café with a stunning view of the Eiffel Tower on a sunny day",
+      },
+      {
+        name: "Rainy Paris",
+        loc: "Paris, France",
+        vid: "mLL6OBKQwPU",
+        desc: "Cozy Parisian study room overlooking the Eiffel Tower on a rainy evening",
+      },
+      {
+        name: "NYC Morning",
+        loc: "New York, USA",
+        vid: "PxIbwamsruc",
+        desc: "Morning rush hour in New York from a café window — real footage, 3 hours",
+      },
+    ],
   },
   {
-    name: "Morgan Library",
-    loc: "New York, USA",
-    country: "United States",
-    vid: "WpfCP3AJSJ4",
-    desc: "J.P. Morgan's gilded private library — home to Gutenberg Bibles, Mozart manuscripts, and Rembrandt drawings",
+    category: "Nature",
+    icon: "🌿",
+    items: [
+      {
+        name: "Mount Fuji",
+        loc: "Japan",
+        vid: "Ectl_ZnUWoI",
+        desc: "Iconic volcano, sakura landscapes and serene mountain lakes in stunning 4K",
+      },
+      {
+        name: "Fuji & Sakura Lake",
+        loc: "Japan",
+        vid: "8nAc2hS-7Ek",
+        desc: "Cherry blossoms reflected in a mirror-still lake beneath Mount Fuji — 10 hours",
+      },
+      {
+        name: "Tropical Beach",
+        loc: "Caribbean Sea",
+        vid: "E-lbpHIkaTo",
+        desc: "3 hours of peaceful ocean waves on a pristine Caribbean beach in 4K",
+      },
+      {
+        name: "Autumn Forest Stream",
+        loc: "Autumn Forest",
+        vid: "zpBG7COX5SU",
+        desc: "A serene autumn forest stream in 4K — colorful foliage and flowing water sounds",
+      },
+    ],
   },
   {
-    name: "Bodleian Library",
-    loc: "Oxford, UK",
-    country: "United Kingdom",
-    vid: "PeLoyrDqL_A",
-    desc: "One of Europe's oldest research libraries, established in 1602 and a filming location for Harry Potter",
-  },
-  {
-    name: "Library of Congress",
-    loc: "Washington D.C., USA",
-    country: "United States",
-    vid: "brp1usbA4_4",
-    desc: "The world's largest library with 170 million items — its Great Hall is breathtaking",
-  },
-  {
-    name: "Strahov Monastery",
-    loc: "Prague, Czech Republic",
-    country: "Czech Republic",
-    vid: "7wKXVBursH4",
-    desc: "A stunning Baroque theological hall with painted ceilings and antique gilded globes",
-  },
-  {
-    name: "Real Gabinete",
-    loc: "Rio de Janeiro, Brazil",
-    country: "Brazil",
-    vid: "cfPiigncsWk",
-    desc: "The Royal Portuguese Reading Room — the finest example of Neo-Manueline architecture outside Portugal",
-  },
-  {
-    name: "George Peabody Library",
-    loc: "Baltimore, USA",
-    country: "United States",
-    vid: "brp1usbA4_4",
-    desc: "Five tiers of ornate cast-iron balconies rising beneath a stunning glass skylight — called the 'Cathedral of Books'",
+    category: "Cozy",
+    icon: "🔥",
+    items: [
+      {
+        name: "Forest Cabin Rain",
+        loc: "Forest Cabin",
+        vid: "4whW5r3Q8js",
+        desc: "12 hours in a cozy wooden cabin with crackling fireplace and gentle rainfall",
+      },
+      {
+        name: "Dark Cabin",
+        loc: "Deep Forest",
+        vid: "o-sm5iD-Bbo",
+        desc: "Cozy cabin deep in the forest — steady rain, soft thunder, crackling fire",
+      },
+      {
+        name: "Rainy Coffee Shop",
+        loc: "Cozy Café",
+        vid: "0L38Z9hIi5s",
+        desc: "A rainy day in a 4K cozy coffee shop — soft background music for focus",
+      },
+      {
+        name: "NYC Winter Window",
+        loc: "New York, USA",
+        vid: "F6EbcP2NDEo",
+        desc: "Snowy New York morning — soft wind and city sounds from a warm window",
+      },
+    ],
   },
 ];
 
@@ -65,69 +177,71 @@ const SOUNDS = {
 };
 
 /* ── State ────────────────────────────────────────────── */
-let state = {
-  curLib:    -1,
-  sound:     'none',
-  focusMode: false,
-};
+let state = { curScene: null, sound: 'none', focusMode: false };
 
 let pomo = {
-  running:   false,
-  phase:     'focus',    // 'focus' | 'short' | 'long'
-  secsLeft:  25 * 60,
-  cycle:     0,
-  interval:  null,
+  running: false,
+  phase: 'focus',
+  secsLeft: 25 * 60,
+  cycle: 0,
+  interval: null,
   cfg: { focus: 25, short: 5, long: 15, cycles: 4 },
 };
 
-/* ── Build Library Grid ───────────────────────────────── */
+/* ── Build Scene Grid ─────────────────────────────────── */
 function buildGrid() {
   const grid = document.getElementById('lib-grid');
-  LIBRARIES.forEach((lib, i) => {
-    const card = document.createElement('div');
-    card.className = 'lib-card';
-    card.id = 'lc' + i;
-    card.innerHTML = `<div class="lib-card-name">${lib.name}</div><div class="lib-card-loc">${lib.loc}</div>`;
-    card.addEventListener('click', () => selectLib(i));
-    grid.appendChild(card);
+  grid.innerHTML = '';
+  SCENES.forEach((cat) => {
+    const catLabel = document.createElement('div');
+    catLabel.className = 'cat-label';
+    catLabel.innerHTML = `<span class="cat-icon">${cat.icon}</span>${cat.category}`;
+    grid.appendChild(catLabel);
+    const catGrid = document.createElement('div');
+    catGrid.className = 'cat-grid';
+    cat.items.forEach((scene) => {
+      const card = document.createElement('div');
+      card.className = 'lib-card';
+      card.id = 'sc-' + scene.vid;
+      card.innerHTML = `<div class="lib-card-name">${scene.name}</div><div class="lib-card-loc">${scene.loc}</div>`;
+      card.addEventListener('click', () => selectScene(scene));
+      catGrid.appendChild(card);
+    });
+    grid.appendChild(catGrid);
   });
 }
 
-/* ── Select Library ───────────────────────────────────── */
-function selectLib(i) {
+/* ── Select Scene ─────────────────────────────────────── */
+function selectScene(scene) {
   document.querySelectorAll('.lib-card').forEach(c => c.classList.remove('sel'));
-  const card = document.getElementById('lc' + i);
+  const card = document.getElementById('sc-' + scene.vid);
   if (card) card.classList.add('sel');
-
-  state.curLib = i;
-  const lib = LIBRARIES[i];
-
-  document.getElementById('lib-title').textContent = lib.name;
-  document.getElementById('lib-desc').textContent  = lib.desc;
-  document.getElementById('badge-name').textContent = lib.name;
-  document.getElementById('badge-loc').textContent  = lib.loc;
-
-  const src = `https://www.youtube.com/embed/${lib.vid}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${lib.vid}`;
+  state.curScene = scene;
+  document.getElementById('lib-title').textContent = scene.name;
+  document.getElementById('lib-desc').textContent  = scene.desc;
+  document.getElementById('badge-name').textContent = scene.name;
+  document.getElementById('badge-loc').textContent  = scene.loc;
+  const src = `https://www.youtube.com/embed/${scene.vid}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${scene.vid}`;
   document.getElementById('yt-player').src = src;
 }
 
 /* ── Sound ────────────────────────────────────────────── */
 function setSound(type) {
   state.sound = type;
-  ['ambient', 'lofi', 'none'].forEach(s => {
-    document.getElementById('sp-' + s).classList.toggle('on', s === type);
-  });
+  ['ambient', 'lofi', 'none'].forEach(s =>
+    document.getElementById('sp-' + s).classList.toggle('on', s === type)
+  );
   const af = document.getElementById('audio-frame');
   af.src = type === 'none' ? '' : SOUNDS[type];
 }
 
-/* ── Enter / Exit App ─────────────────────────────────── */
+/* ── Enter App ────────────────────────────────────────── */
 function enterApp() {
   document.getElementById('landing').classList.add('out');
   const main = document.getElementById('main');
   main.classList.remove('hidden');
   setTimeout(() => main.classList.add('visible'), 50);
-  if (state.curLib === -1) selectLib(0);
+  selectScene(SCENES[0].items[0]);
 }
 
 /* ── Focus Mode ───────────────────────────────────────── */
@@ -142,8 +256,8 @@ function exitFocus() {
 
 /* ── Clock ────────────────────────────────────────────── */
 function tickClock() {
-  const now  = new Date();
-  const full = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const now   = new Date();
+  const full  = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const short = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   document.getElementById('hud-clock').textContent = short;
   document.getElementById('fo-clock').textContent  = full;
@@ -158,23 +272,20 @@ function fmt(secs) {
 
 function updatePomoUI() {
   const t = fmt(pomo.secsLeft);
-  document.getElementById('pomo-time').textContent    = t;
+  document.getElementById('pomo-time').textContent     = t;
   document.getElementById('hud-pomo-time').textContent = t;
   document.getElementById('fo-pomo').textContent       = t;
-
-  const phaseLabels = { focus: 'Focus', short: 'Short break', long: 'Long break' };
-  const phaseLabel  = phaseLabels[pomo.phase];
-  const stateLabel  = pomo.running ? phaseLabel : (pomo.secsLeft === pomo.cfg.focus * 60 && pomo.phase === 'focus' ? 'Ready to focus' : 'Paused');
-
+  const labels = { focus: 'Focus', short: 'Short break', long: 'Long break' };
+  const label  = labels[pomo.phase];
+  const stateLabel = pomo.running ? label
+    : (pomo.secsLeft === pomo.cfg.focus * 60 && pomo.phase === 'focus' ? 'Ready to focus' : 'Paused');
   document.getElementById('pomo-phase-label').textContent = stateLabel;
-  document.getElementById('hud-pomo-phase').textContent   = phaseLabel;
-  document.getElementById('fo-phase').textContent         = phaseLabel;
-
-  const cycles = pomo.cfg.cycles;
+  document.getElementById('hud-pomo-phase').textContent   = label;
+  document.getElementById('fo-phase').textContent         = label;
   for (let i = 0; i < 4; i++) {
+    const done = i < pomo.cycle && i < pomo.cfg.cycles;
     const pip  = document.getElementById('pip' + i);
     const hdot = document.getElementById('hd'  + i);
-    const done = i < pomo.cycle && i < cycles;
     if (pip)  pip.className  = 'pip'  + (done ? ' done' : '');
     if (hdot) hdot.className = 'hdot' + (done ? ' done' : '');
   }
@@ -203,7 +314,6 @@ function nextPomoPhase() {
   clearInterval(pomo.interval);
   pomo.running = false;
   playChime();
-
   if (pomo.phase === 'focus') {
     pomo.cycle++;
     if (pomo.cycle >= pomo.cfg.cycles) {
@@ -245,11 +355,11 @@ function updateCfg() {
   updatePomoUI();
 }
 
-/* ── Chime (gentle beep using Web Audio API) ──────────── */
+/* ── Chime ────────────────────────────────────────────── */
 function playChime() {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const freqs = [523, 659, 784]; // C5, E5, G5
+    const ctx   = new (window.AudioContext || window.webkitAudioContext)();
+    const freqs = [523, 659, 784];
     freqs.forEach((freq, i) => {
       const osc  = ctx.createOscillator();
       const gain = ctx.createGain();
@@ -273,9 +383,7 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
     togglePomo();
   }
-  if (e.code === 'KeyF') {
-    state.focusMode ? exitFocus() : enterFocus();
-  }
+  if (e.code === 'KeyF') state.focusMode ? exitFocus() : enterFocus();
   if (e.code === 'Escape') exitFocus();
 });
 
