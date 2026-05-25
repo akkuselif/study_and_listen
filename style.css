@@ -11,9 +11,9 @@
   --text:      #f0ebe3;
   --text2:     #9a9088;
   --text3:     #5a5450;
-  --gold:      #c8a96e;
-  --gold2:     #e8c98a;
-  --gold-dim:  rgba(200,169,110,0.18);
+  --gold:      #9c7a97;
+  --gold2:     #b899b4;
+  --gold-dim:  rgba(156,122,151,0.18);
   --panel-w:   320px;
   --serif:     'Cormorant Garamond', Georgia, serif;
   --sans:      'DM Sans', system-ui, sans-serif;
@@ -32,7 +32,7 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
   position: absolute; inset: 0;
   background: #1a1525;
   background-image:
-    radial-gradient(ellipse 70% 55% at 50% 55%, rgba(180,140,255,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 55% at 50% 55%, rgba(156,122,151,0.22) 0%, transparent 70%),
     url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a96e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 #landing-content {
