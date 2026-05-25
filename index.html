@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study & Listen — Study in the world's most beautiful libraries</title>
+<meta name="description" content="Pick a beautiful library anywhere in the world, watch it, hear it, and study like you're really there.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Landing Screen -->
+  <div id="landing">
+    <div id="landing-bg"></div>
+    <div id="landing-content">
+      <div id="wordmark">
+        <span class="wm-study">Study</span>
+        <span class="wm-amp">&amp;</span>
+        <span class="wm-listen">Listen</span>
+      </div>
+      <p id="tagline">Step inside the world's most beautiful libraries.<br>Watch. Listen. Study like you're really there.</p>
+      <button id="enter-btn" onclick="enterApp()">
+        <span>Choose your library</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p id="landing-hint">8 iconic libraries across 7 countries</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="main" class="hidden">
+
+    <!-- Video Layer -->
+    <div id="video-wrap">
+      <iframe id="yt-player" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div id="vid-vignette"></div>
+
+      <!-- HUD overlay (top-right) -->
+      <div id="hud">
+        <div id="hud-clock">--:--</div>
+        <div id="hud-pomo">
+          <div id="hud-pomo-time">25:00</div>
+          <div id="hud-pomo-phase">Focus</div>
+          <div id="hud-dots">
+            <span class="hdot" id="hd0"></span>
+            <span class="hdot" id="hd1"></span>
+            <span class="hdot" id="hd2"></span>
+            <span class="hdot" id="hd3"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top-left library badge -->
+      <div id="lib-badge">
+        <span id="badge-name">—</span>
+        <span id="badge-loc"></span>
+      </div>
+    </div>
+
+    <!-- Focus Mode Overlay -->
+    <div id="focus-overlay" onclick="exitFocus()">
+      <div id="fo-inner">
+        <div id="fo-clock">--:--:--</div>
+        <div id="fo-pomo">25:00</div>
+        <div id="fo-phase">Focus session</div>
+        <div id="fo-hint">tap anywhere to exit</div>
+      </div>
+    </div>
+
+    <!-- Panel -->
+    <div id="panel">
+      <div id="panel-inner">
+
+        <!-- Header -->
+        <div id="panel-header">
+          <div id="panel-wordmark">S&amp;L</div>
+          <button id="focus-mode-btn" onclick="enterFocus()" title="Focus mode">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24M1 1l22 22"/></svg>
+            Focus
+          </button>
+        </div>
+
+        <!-- Library info -->
+        <div id="lib-info">
+          <div id="lib-title">Choose a library</div>
+          <div id="lib-desc">Select your study destination below</div>
+        </div>
+
+        <!-- Sound controls -->
+        <div class="section-label">Ambience</div>
+        <div id="sound-pills">
+          <button class="spill" id="sp-ambient" onclick="setSound('ambient')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            Library ambience
+          </button>
+          <button class="spill" id="sp-lofi" onclick="setSound('lofi')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            Lo-fi music
+          </button>
+          <button class="spill" id="sp-none" onclick="setSound('none')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M9 9v3a3 3 0 005.12 2.12M15 9.34V4a3 3 0 00-5.94-.6"/><path d="M17 16.95A7 7 0 015 12v-2m14 0v2a7 7 0 01-.11 1.23"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            Silence
+          </button>
+        </div>
+        <div id="vol-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+          <input type="range" id="vol-slider" min="0" max="100" value="55" step="1" oninput="document.getElementById('vol-val').textContent=this.value">
+          <span id="vol-val">55</span>
+        </div>
+
+        <!-- Pomodoro -->
+        <div class="section-label">Pomodoro</div>
+        <div id="pomo-block">
+          <div id="pomo-left">
+            <div id="pomo-time">25:00</div>
+            <div id="pomo-phase-label">Ready to focus</div>
+            <div id="pomo-pips">
+              <span class="pip" id="pip0"></span>
+              <span class="pip" id="pip1"></span>
+              <span class="pip" id="pip2"></span>
+              <span class="pip" id="pip3"></span>
+            </div>
+          </div>
+          <div id="pomo-right">
+            <button class="pomo-btn" id="pomo-play" onclick="togglePomo()">
+              <svg id="play-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span id="play-label">Start</span>
+            </button>
+            <button class="pomo-btn" onclick="resetPomo()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+              Reset
+            </button>
+            <button class="pomo-btn" onclick="skipPomo()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+              Skip
+            </button>
+          </div>
+        </div>
+        <div id="pomo-cfg">
+          <label class="cfg-item">
+            <span class="cfg-label">Focus</span>
+            <input type="number" id="cfg-focus" value="25" min="1" max="90" onchange="updateCfg()">
+            <span class="cfg-unit">min</span>
+          </label>
+          <label class="cfg-item">
+            <span class="cfg-label">Short break</span>
+            <input type="number" id="cfg-short" value="5" min="1" max="30" onchange="updateCfg()">
+            <span class="cfg-unit">min</span>
+          </label>
+          <label class="cfg-item">
+            <span class="cfg-label">Long break</span>
+            <input type="number" id="cfg-long" value="15" min="1" max="60" onchange="updateCfg()">
+            <span class="cfg-unit">min</span>
+          </label>
+          <label class="cfg-item">
+            <span class="cfg-label">Cycles</span>
+            <input type="number" id="cfg-cycles" value="4" min="2" max="8" onchange="updateCfg()">
+            <span class="cfg-unit"></span>
+          </label>
+        </div>
+
+        <!-- Library grid -->
+        <div class="section-label">Libraries</div>
+        <div id="lib-grid"></div>
+
+        <div id="panel-footer">
+          Study &amp; Listen &nbsp;·&nbsp; inspired by <a href="https://driveandlisten.app" target="_blank" rel="noopener">Drive &amp; Listen</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<audio id="chime-audio" preload="auto"></audio>
+<iframe id="audio-frame" style="display:none" allow="autoplay"></iframe>
+
+<script src="app.js"></script>
+</body>
+</html>
